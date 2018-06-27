@@ -17,7 +17,8 @@ astFileName = tmpDir + os.path.basename(fileName) + ".xml"
 
 includeDirs = ""
 for i in range(2, len(sys.argv)):
-    includeDirs += " -I" + sys.argv[i]
+    for s in sys.argv[i].split():
+        includeDirs += " -I" + s
 
 castXmlArgs = includeDirs + " -std=c++17 --castxml-output=1 -o " + astFileName
 
