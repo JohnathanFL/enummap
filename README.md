@@ -2,6 +2,8 @@
 Maps all (explicitly marked) enums found in a file to their string names, allowing for easy conversions.
 (Temporarily linux/max only)
 
+For an example of automated use, see [GLENgine](https://github.com/JohnathanFL/GLENgine)
+
 To use:
 - castxml must be installed and in your PATH
 - include EnumMap.hpp
