@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 // Use this to mark an enum for mapping
 #define STRINGIFY __attribute__((annotate("Stringify")))
