@@ -9,15 +9,21 @@ if len(sys.argv) < 3:
     print("Usage: ./enummap.py <input> <output> [<include dirs>...]")
     exit(-1)
 
+for arg in sys.argv:
+    arg = arg.replace('\'', '')
 
 fileName = sys.argv[1]
 astFileName = tmpDir + os.path.basename(fileName) + ".xml"
 
 includeDirs = ""
 for i in range(3, len(sys.argv)):
-    includeDirs += " -cxx-isystem " + sys.argv[i]
+    includeDirs += " -I" + sys.argv[i]
 
 castXmlArgs = includeDirs + " -std=c++17 --castxml-output=1 -o " + astFileName
+
+log = open('/tmp/log.logger', 'w')
+log.write("castxml " + fileName + castXmlArgs)
+log.close()
 
 os.system("castxml " + fileName + castXmlArgs)
 
